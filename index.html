@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7c9507e888.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Audio Player</title>
+</head>
+<body>
+    <div id="container" class="container">
+        <div id="top-wrapper" class="top-wrapper">
+            <section id="visualizer" class="visualizer"></section>
+            <section id="track-list" class="track-list"></section>
+        </div>
+        <div id="bottom-wrapper" class="bottom-wrapper">
+            <section id="now-playing" class="now-playing">Now Playing - 0:00</section>
+            <section id="controls" class="controls">
+                <button id="prev-btn" class="prev-btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="play-btn" class="play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="stop-btn" class="stop-btn">
+                    <i class="fas fa-stop"></i>
+                </button>
+                <button id="next-btn" class="next-btn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+            </section>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

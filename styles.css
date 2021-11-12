@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    background-color: black;
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: dimgray;
+}
+
+.top-wrapper {
+    height: 85%;
+    width: 100%;
+    background-color: gray;
+}
+
+.visualizer {
+    height: 100%;
+    width: 75%;
+    background-color: black;
+    border: 2px solid gray;
+}
+
+.bottom-wrapper {
+    height: 15%;
+    width: 100%;
+}
+
+.now-playing {
+    height: 30%;
+    width: 100%;
+    background-color: black;
+    color: greenyellow;
+    padding: .25em 1em;
+    font-size: 1.5em;
+    border: 2px solid gray;
+    line-height: 1.5em;
+}
+
+.controls {
+    padding: 1em;
+}
+
+.controls button {
+    font-size: 2em;
+    border-radius: .25em;
+    padding: .5em;
+    background-color: gray;
+}
