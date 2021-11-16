@@ -14,9 +14,10 @@ body {
 }
 
 .top-wrapper {
-    height: 85%;
+    height: 75%;
     width: 100%;
     background-color: gray;
+    display: flex;
 }
 
 .visualizer {
@@ -26,18 +27,45 @@ body {
     border: 2px solid gray;
 }
 
+.tracks-pane {
+    height: 100%;
+    width: 25%;
+    background-color: #090909;
+}
+
+.track-list {
+    height: auto;
+    background-color: #000000;
+    text-align: left;
+    list-style: none;
+    padding-left: 0;
+}
+
+.track-list > li:nth-child(odd) { 
+    background: #131313; 
+}
+
+.track {
+    padding: .75em;
+    color: limegreen;
+}
+
 .bottom-wrapper {
-    height: 15%;
+    height: 25%;
     width: 100%;
 }
 
+.waveform {
+    height: 50%;
+}
+
 .now-playing {
-    height: 30%;
+    height: 2rem;
     width: 100%;
     background-color: black;
     color: greenyellow;
     padding: .25em 1em;
-    font-size: 1.5em;
+    font-size: 1em;
     border: 2px solid gray;
     line-height: 1.5em;
 }
@@ -47,7 +75,7 @@ body {
 }
 
 .controls button {
-    font-size: 2em;
+    font-size: 1.5em;
     border-radius: .25em;
     padding: .5em;
     background-color: gray;

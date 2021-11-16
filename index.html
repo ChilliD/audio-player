@@ -12,18 +12,21 @@
     <div id="container" class="container">
         <div id="top-wrapper" class="top-wrapper">
             <section id="visualizer" class="visualizer"></section>
-            <section id="track-list" class="track-list"></section>
+            <section id="tracks-pane" class="tracks-pane">
+                <ul id="track-list" class="track-list"></ul>
+            </section>
         </div>
         <div id="bottom-wrapper" class="bottom-wrapper">
+            <div id="waveform" class="waveform"></div>
             <section id="now-playing" class="now-playing">Now Playing - 0:00</section>
             <section id="controls" class="controls">
                 <button id="prev-btn" class="prev-btn">
                     <i class="fas fa-step-backward"></i>
                 </button>
-                <button id="play-btn" class="play-btn">
+                <button id="play-btn" class="play-btn" onclick="handlePlayPause()">
                     <i class="fas fa-play"></i>
                 </button>
-                <button id="stop-btn" class="stop-btn">
+                <button id="stop-btn" class="stop-btn" onclick="handleStop()">
                     <i class="fas fa-stop"></i>
                 </button>
                 <button id="next-btn" class="next-btn">
@@ -32,6 +35,7 @@
             </section>
         </div>
     </div>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
     <script src="scripts.js"></script>
 </body>
 </html>
