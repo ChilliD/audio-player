@@ -5,6 +5,7 @@
 body {
     font-size: 16px;
     background-color: black;
+    font-family: arial;
 }
 
 .container {
@@ -25,58 +26,113 @@ body {
     width: 75%;
     background-color: black;
     border: 2px solid gray;
+    border-bottom: none;
 }
 
 .tracks-pane {
     height: 100%;
     width: 25%;
-    background-color: #090909;
+    background-color: #000000;
+    border-top: 2px solid gray;
+    overflow: scroll;
 }
 
 .track-list {
     height: auto;
-    background-color: #000000;
+    background-color: #090909;
     text-align: left;
-    list-style: none;
-    padding-left: 0;
+    cursor: default;
 }
 
 .track-list > li:nth-child(odd) { 
-    background: #131313; 
+    background-color: #131313; 
+}
+
+.track-list > li:nth-child(odd):hover { 
+    background-color: #090909; 
+}
+
+.track-list > li:nth-child(odd):active { 
+    background-color: #000000; 
 }
 
 .track {
     padding: .75em;
     color: limegreen;
+    font-size: 1.4em;
+    line-height: 1.25em;
+}
+
+.track:hover {
+    background-color: #090909;
+    color: gainsboro;
+}
+
+.track:active {
+    background-color: #000000;
+}
+
+.track-name {
+    font-weight: 600;
+}
+
+.track-length {
+    font-style: italic;
+}
+
+.track-artist {
+    color: gray;
 }
 
 .bottom-wrapper {
     height: 25%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .waveform {
     height: 50%;
+    width: 100%;
+    background-color: #090909;
+    border-top: 2px solid gray;
+    padding: 0 .2em;
 }
 
-.now-playing {
-    height: 2rem;
+.playing-text {
     width: 100%;
     background-color: black;
-    color: greenyellow;
+    color: #ffffff;
     padding: .25em 1em;
-    font-size: 1em;
-    border: 2px solid gray;
-    line-height: 1.5em;
+    font-size: 1.4rem;
+    border: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+}
+
+.duration {
+    text-align: right;
+    color: #8d8d8d;
 }
 
 .controls {
     padding: 1em;
+    display: flex;
+    justify-content: center;
 }
 
 .controls button {
     font-size: 1.5em;
     border-radius: .25em;
-    padding: .5em;
-    background-color: gray;
+    padding: .5em 1em;
+    background-color: #808080;
+    margin: 0 .1em;
+}
+
+.controls button:hover {
+    background-color: #8d8d8d;
+}
+
+.controls button:active {
+    background-color: #737373;
 }

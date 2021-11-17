@@ -49,28 +49,44 @@ const tracks = [
         time: '2:03'
     }
 ];
-let paused = true;
 
-var wavesurfer = WaveSurfer.create({
+let paused = true;
+let initialLoad;
+let duration;
+
+const wavesurfer = WaveSurfer.create({
     container: '#waveform',
     waveColor: 'limegreen',
     progressColor: 'green'
 });
 
-wavesurfer.load(tracks[0].url);
-
 function makeTrackList(tracksArr) {
 
-    tracksArr.forEach((item) => {
+    tracksArr.forEach((item, index) => {
         let list = document.getElementById('track-list');
         let track = document.createElement('li');
         track.classList.add('track');
         track.innerHTML = `
-            <span class="track-name">${item.name}</span> - <span class="track-artist">${item.artist} </span>
-            <span class="track-length">${item.time}</span>
+            <span class="track-name">${item.name}</span>&nbsp; - &nbsp;<span class="track-length">${item.time} </span>
+            <br /><span class="track-artist">${item.artist}</span>
             `;
+        track.onclick = function() {selectTrack(item)};
         list.appendChild(track);
     });
+}
+
+function selectTrack(track) {
+    let nowPlaying = document.getElementById('now-playing');
+    duration = track.time;
+
+    handleStop();
+    wavesurfer.empty();
+
+    nowPlaying.innerHTML = `Now Playing:&nbsp; ${track.name} by ${track.artist}
+    `;
+
+    wavesurfer.load(track.url);
+    initialLoad = false;
 }
 
 function handlePlayPause() {
@@ -89,7 +105,45 @@ function handlePlayPause() {
 }
 
 function handleStop() {
+    let playButton = document.getElementById('play-btn');
+
     wavesurfer.stop();
+    playButton.innerHTML = `<i class="fas fa-play"></i>`;
+    paused = true;
 }
 
-makeTrackList(tracks);
+function init() {
+    selectTrack(tracks[0]);
+    makeTrackList(tracks);
+    wavesurfer.stop();
+    initialLoad = true;
+}
+
+wavesurfer.on('ready', function() {
+    let playButton = document.getElementById('play-btn');
+
+    if (!initialLoad) {
+    wavesurfer.play();
+    playButton.innerHTML = `<i class="fas fa-pause"></i>`;
+    }
+});
+
+wavesurfer.on('finish', function() {
+    selectTrack(tracks[0]);
+});
+
+wavesurfer.on("audioprocess", function() {
+    let timeline = document.getElementById('duration');
+    let currentTime = wavesurfer.getCurrentTime();
+
+    var s = parseInt(currentTime % 60);
+    var m = parseInt((currentTime / 60) % 60);
+    if (s < 10) {
+        timeline.innerHTML = `${m}:0${s} / ${duration}`;
+    }
+    else {
+        timeline.innerHTML = `${m}:${s} / ${duration}`;
+    }
+});
+
+init();
