@@ -1,58 +1,152 @@
 
-const tracks = [
-    {
-        name: 'Feel Alright',
+const albums = [
+    {   
+        title: '2020',
         artist: 'Chilli D',
-        url: '/music/2020ChilliDFeelAlright.mp4',
-        time: '2:10'
+        image: 'graphics/ChilliD_2020_albumart.jpg', 
+        tracks: [    
+            {
+                name: 'Feel Alright',
+                artist: 'Chilli D',
+                url: '/music/2020/2020ChilliDFeelAlright.mp4',
+                time: '2:10',
+                number: 1
+            },
+            {
+                name: `Runnin' Out`,
+                artist: 'Chilli D',
+                url: '/music/2020/2020ChilliDRunninOut.mp4',
+                time: '1:00',
+                number: 6
+            },
+            {
+                name: 'Slack',
+                artist: 'Chilli D',
+                url: '/music/2020/2020ChilliDSlack.mp4',
+                time: '2:42',
+                number: 3
+            },
+            {
+                name: 'Stalling',
+                artist: 'Chilli D',
+                url: '/music/2020/2020ChilliDStalling.mp4',
+                time: '2:24',
+                number: 5
+            },
+            {
+                name: 'Teath',
+                artist: 'Chilli D',
+                url: '/music/2020/2020ChilliDTeath.mp4',
+                time: '3:13',
+                number: 2
+            },
+            {
+                name: 'Walk Off',
+                artist: 'Chilli D',
+                url: '/music/2020/2020ChilliDWalkOff.mp4',
+                time: '3:17',
+                number: 4
+            },
+            {
+                name: 'World Tour',
+                artist: 'Chilli D',
+                url: '/music/2020/2020ChilliDWorldTour.mp4',
+                time: '1:54',
+                number: 7
+            },
+            {
+                name: 'Zesty',
+                artist: 'Chilli D',
+                url: '/music/2020/2020ChilliDZesty.mp4',
+                time: '2:03',
+                number: 8
+            }
+        ]
     },
     {
-        name: `Runnin' Out`,
+        title: '2021',
         artist: 'Chilli D',
-        url: '/music/2020ChilliDRunninOut.mp4',
-        time: '1:00'
-    },
-    {
-        name: 'Slack',
-        artist: 'Chilli D',
-        url: '/music/2020ChilliDSlack.mp4',
-        time: '2:42'
-    },
-    {
-        name: 'Stalling',
-        artist: 'Chilli D',
-        url: '/music/2020ChilliDStalling.mp4',
-        time: '2:24'
-    },
-    {
-        name: 'Teath',
-        artist: 'Chilli D',
-        url: '/music/2020ChilliDTeath.mp4',
-        time: '3:13'
-    },
-    {
-        name: 'Walk Off',
-        artist: 'Chilli D',
-        url: '/music/2020ChilliDWalkOff.mp4',
-        time: '3:17'
-    },
-    {
-        name: 'World Tour',
-        artist: 'Chilli D',
-        url: '/music/2020ChilliDWorldTour.mp4',
-        time: '1:54'
-    },
-    {
-        name: 'Zesty',
-        artist: 'Chilli D',
-        url: '/music/2020ChilliDZesty.mp4',
-        time: '2:03'
+        image: 'graphics/2021.png',
+        tracks: [
+            {
+                name: 'Jungle',
+                artist: 'Chilli D',
+                url: '/music/2021/01Jungle.mp3',
+                time: '2:25',
+                number: 1
+            },
+            {
+                name: 'Sweetch',
+                artist: 'Chilli D',
+                url: '/music/2021/02Sweetch.mp3',
+                time: '0:52',
+                number: 2
+            },
+            {
+                name: 'Can\'t Make Me',
+                artist: 'Chilli D',
+                url: '/music/2021/03CantMakeMe.mp3',
+                time: '1:35',
+                number: 3
+            },
+            {
+                name: 'TricklDown',
+                artist: 'Chilli D',
+                url: '/music/2021/04TricklDown.mp3',
+                time: '1:13',
+                number: 4
+            },
+            {
+                name: 'Boss Level',
+                artist: 'Chilli D',
+                url: '/music/2021/05BossLevel.mp3',
+                time: '0:44',
+                number: 5
+            },
+            {
+                name: 'Spynnr',
+                artist: 'Chilli D',
+                url: '/music/2021/06Spynnr.mp3',
+                time: '1:03',
+                number: 6
+            },
+            {
+                name: 'Dreamland',
+                artist: 'Chilli D',
+                url: '/music/2021/07Dreamland.mp3',
+                time: '1:19',
+                number: 7
+            },
+            {
+                name: 'DriveN',
+                artist: 'Chilli D',
+                url: '/music/2021/08DriveN.mp3',
+                time: '1:38',
+                number: 8
+            },
+            {
+                name: 'Find Me',
+                artist: 'Chilli D',
+                url: '/music/2021/09FindMe.mp3',
+                time: '1:57',
+                number: 9
+            },
+            {
+                name: 'Leave Alone',
+                artist: 'Chilli D',
+                url: '/music/2021/10LeaveAlone.mp3',
+                time: '1:15',
+                number: 10
+            },
+        ]
     }
 ];
 
+let tracks = [];
 let paused = true;
 let initialLoad;
 let duration;
+let currentTrackNum;
 
 const wavesurfer = WaveSurfer.create({
     container: '#waveform',
@@ -60,9 +154,51 @@ const wavesurfer = WaveSurfer.create({
     progressColor: 'green'
 });
 
-function makeTrackList(tracksArr) {
+function clearPane() {
+    let parent = document.getElementById('tracks-pane');
+    
+    while (parent.lastChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 
-    tracksArr.forEach((item, index) => {
+function makeAlbumList(albumsArr) {
+    let path = document.getElementById('nav-title');
+    path.innerText = 'Albums';
+
+    clearPane();
+
+    albumsArr.forEach((album) => {
+        let wrapper = document.getElementById('tracks-pane');
+        let child = document.createElement('div');
+        child.classList.add('album-card');
+        child.innerHTML = `
+            <img class="album-thumb" src="${album.image}">
+            <div class="album-card-text">
+                <span class="album-card-title">${album.title}</span>
+                <span class="album-card-artist">${album.artist}</span>
+            </div>
+        `;
+        child.onclick = function() { makeTrackList(album.tracks) };
+        wrapper.appendChild(child);
+    });
+}
+
+function makeTrackList(tracksArr) {
+    let path = document.getElementById('nav-title');
+    path.innerText = 'Tracks';
+
+    clearPane();
+
+    let wrapper = document.getElementById('tracks-pane');
+    let list = document.createElement('ol');
+    list.id = 'track-list';
+    list.classList.add('track-list');
+    wrapper.appendChild(list);
+
+    let orderedArr = tracksArr.sort((a, b) => (a.number > b.number) ? 1 : -1);
+
+    orderedArr.forEach((item, index) => {
         let list = document.getElementById('track-list');
         let track = document.createElement('li');
         track.classList.add('track');
@@ -70,14 +206,17 @@ function makeTrackList(tracksArr) {
             <span class="track-name">${item.name}</span>&nbsp; - &nbsp;<span class="track-length">${item.time} </span>
             <br /><span class="track-artist">${item.artist}</span>
             `;
-        track.onclick = function() {selectTrack(item)};
+        track.onclick = function() { selectTrack(item) };
         list.appendChild(track);
     });
+
+    tracks = tracksArr;
 }
 
 function selectTrack(track) {
     let nowPlaying = document.getElementById('now-playing');
     duration = track.time;
+    currentTrackNum = (track.number - 1);
 
     handleStop();
     wavesurfer.empty();
@@ -89,8 +228,14 @@ function selectTrack(track) {
     initialLoad = false;
 }
 
+function handleBackNav() {
+    clearPane();
+    makeAlbumList(albums);
+}
+
 function handlePlayPause() {
     let button = document.getElementById('play-btn');
+    initialLoad = false;
 
     if (paused) {
         button.innerHTML = `<i class="fas fa-pause"></i>`;
@@ -112,11 +257,25 @@ function handleStop() {
     paused = true;
 }
 
+function handleSkipForward() {
+    selectTrack(tracks[currentTrackNum + 1]);
+}
+
+function handleSkipBack() {
+    selectTrack(tracks[currentTrackNum - 1]);
+}
+
+function handleVolume() {
+    let slider = document.getElementById('volume');
+    wavesurfer.setVolume(slider.value);
+}
+
 function init() {
-    selectTrack(tracks[0]);
-    makeTrackList(tracks);
+    //currentTrackNum = 0;
+    makeAlbumList(albums);
     wavesurfer.stop();
     initialLoad = true;
+    wavesurfer.setVolume(.75);
 }
 
 wavesurfer.on('ready', function() {
@@ -125,11 +284,24 @@ wavesurfer.on('ready', function() {
     if (!initialLoad) {
     wavesurfer.play();
     playButton.innerHTML = `<i class="fas fa-pause"></i>`;
-    }
+    paused = false;
+    } 
 });
 
 wavesurfer.on('finish', function() {
-    selectTrack(tracks[0]);
+    currentTrackNum += 1;
+
+    if (currentTrackNum >= tracks.length) {
+        let timeline = document.getElementById('duration');
+        let nowPlaying = document.getElementById('now-playing');
+        let playButton = document.getElementById('play-btn');
+        wavesurfer.empty();
+        playButton.innerHTML = `<i class="fas fa-play"></i>`;
+        nowPlaying.innerHTML = `Now Playing:`;
+        timeline.innerHTML = `0:00 / 0:00`;
+    } else {
+        selectTrack(tracks[currentTrackNum]);
+    }
 });
 
 wavesurfer.on("audioprocess", function() {

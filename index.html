@@ -12,9 +12,15 @@
     <div id="container" class="container">
         <div id="top-wrapper" class="top-wrapper">
             <section id="visualizer" class="visualizer"></section>
-            <section id="tracks-pane" class="tracks-pane">
-                <ol id="track-list" class="track-list"></ol>
-            </section>
+            <div id="right-wrapper" class="right-wrapper">
+                <div id="album-nav" class="album-nav">
+                    <i class="fas fa-chevron-left" onclick="handleBackNav()"></i>
+                    <span id="nav-title" class="nav-title">Albums</span>
+                </div>
+                <section id="tracks-pane" class="tracks-pane">
+                    <ol id="track-list" class="track-list"></ol>
+                </section>
+            </div>
         </div>
         <div id="bottom-wrapper" class="bottom-wrapper">
             <div id="waveform" class="waveform"></div>
@@ -23,7 +29,7 @@
                 <span id="duration" class="duration">0:00 / 0:00</span>
             </div>
             <section id="controls" class="controls">
-                <button id="prev-btn" class="prev-btn">
+                <button id="prev-btn" class="prev-btn" onclick="handleSkipBack()">
                     <i class="fas fa-step-backward"></i>
                 </button>
                 <button id="play-btn" class="play-btn" onclick="handlePlayPause()">
@@ -32,9 +38,12 @@
                 <button id="stop-btn" class="stop-btn" onclick="handleStop()">
                     <i class="fas fa-stop"></i>
                 </button>
-                <button id="next-btn" class="next-btn">
+                <button id="next-btn" class="next-btn" onclick="handleSkipForward()">
                     <i class="fas fa-step-forward"></i>
                 </button>
+                <div class="volume-slider">
+                    <input type="range" min="0" max="1" value="0.75" step=".01" id="volume" class="volume" onchange="handleVolume()">
+                </div>
             </section>
         </div>
     </div>

@@ -6,6 +6,8 @@ body {
     font-size: 16px;
     background-color: black;
     font-family: arial;
+    height: 100vh;
+    width: 100vw;
 }
 
 .container {
@@ -21,6 +23,16 @@ body {
     display: flex;
 }
 
+.right-wrapper {
+    height: 100%;
+    width: 25%;
+    background-color: #000000;
+    border-top: 2px solid gray;
+    border-right: 2px solid gray;
+    overflow: scroll;
+    cursor: default;
+}
+
 .visualizer {
     height: 100%;
     width: 75%;
@@ -29,19 +41,78 @@ body {
     border-bottom: none;
 }
 
-.tracks-pane {
-    height: 100%;
-    width: 25%;
+.album-nav {
+    height: 3rem;
+    background-color: #090909;
+    color: #e6e6e6;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    padding: .5em;
+}
+
+.album-nav i {
+    height: 2em;
+    width: 2em;
     background-color: #000000;
-    border-top: 2px solid gray;
-    overflow: scroll;
+    color: #737373;
+    padding: .5em;
+    border-radius: 60%;
+    text-align: center;
+}
+
+.album-nav i:hover {
+    background-color: #191919;
+    cursor: pointer;
+}
+
+.album-nav i:active {
+    background-color: #000000;
+}
+
+.nav-title {
+    padding-left: 1em;
+}
+
+.album-card {
+    border-bottom: 2px solid #4a4a4a;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.album-card:hover {
+    background-color: #090909;
+}
+
+.album-thumb {
+    height: 4em;
+    width: 4em;
+    border: 1px solid gray;
+    object-fit: cover;
+}
+
+.album-card-text {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.album-card-title {
+    font-size: 1.3em;
+    color: #e6e6e6;
+}
+
+.album-card-artist {
+    font-size: 1em;
+    color: #737373;
 }
 
 .track-list {
     height: auto;
     background-color: #090909;
     text-align: left;
-    cursor: default;
 }
 
 .track-list > li:nth-child(odd) { 
@@ -89,50 +160,79 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(#696969, #4a4a4a);
 }
 
 .waveform {
-    height: 50%;
+    height: 40%;
     width: 100%;
     background-color: #090909;
     border-top: 2px solid gray;
-    padding: 0 .2em;
 }
 
 .playing-text {
     width: 100%;
     background-color: black;
-    color: #ffffff;
-    padding: .25em 1em;
-    font-size: 1.4rem;
-    border: 1px solid gray;
+    background: linear-gradient(#090909, #000000);
+    color: #e6e6e6;
+    padding: .4rem 1rem;
+    font-size: 1.4em;
+    border-bottom: 1px solid #191919;
+    border-bottom-right-radius: 1.5rem;
     display: flex;
     justify-content: space-between;
 }
 
+.now-playing {
+    z-index: 100;
+}
+
 .duration {
     text-align: right;
-    color: #8d8d8d;
+    color: #e6e6e6;
+    z-index: 100;
 }
 
 .controls {
+    height: 60%;
     padding: 1em;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .controls button {
     font-size: 1.5em;
     border-radius: .25em;
-    padding: .5em 1em;
-    background-color: #808080;
-    margin: 0 .1em;
+    padding: .5rem 1rem;
+    background-color: #696969;
+    margin: 0 .1rem;
 }
 
 .controls button:hover {
-    background-color: #8d8d8d;
+    background-color: #737373;
 }
 
 .controls button:active {
-    background-color: #737373;
+    background-color: #4a4a4a;
+}
+
+.volume-slider {
+    padding: 0 2em;
+}
+
+.volume {
+    appearance: none;
+    height: 1em;
+    background: #191919;
+    border-radius: 2em;
+}
+
+.volume::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.5em;
+    height: 1.5em;
+    border: 2px solid #737373;
+    border-radius: 1em;
+    background-color: #4a4a4a;
 }
