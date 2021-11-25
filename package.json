@@ -1,0 +1,26 @@
+{
+  "name": "chilli-audio-player",
+  "version": "1.0.0",
+  "description": "Listening platform for Chilli D album releases",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "wavesurfer.js": "^5.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChilliD/audio-player.git"
+  },
+  "keywords": [
+    "music",
+    "ChilliD"
+  ],
+  "author": "Chilli D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChilliD/audio-player/issues"
+  },
+  "homepage": "https://github.com/ChilliD/audio-player#readme"
+}
