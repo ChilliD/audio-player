@@ -8,56 +8,56 @@ const albums = [
             {
                 name: 'Feel Alright',
                 artist: 'Chilli D',
-                url: '/music/2020/2020ChilliDFeelAlright.mp4',
+                url: 'music/2020/2020ChilliDFeelAlright.mp4',
                 time: '2:10',
                 number: 1
             },
             {
                 name: `Runnin' Out`,
                 artist: 'Chilli D',
-                url: '/music/2020/2020ChilliDRunninOut.mp4',
+                url: 'music/2020/2020ChilliDRunninOut.mp4',
                 time: '1:00',
                 number: 6
             },
             {
                 name: 'Slack',
                 artist: 'Chilli D',
-                url: '/music/2020/2020ChilliDSlack.mp4',
+                url: 'music/2020/2020ChilliDSlack.mp4',
                 time: '2:42',
                 number: 3
             },
             {
                 name: 'Stalling',
                 artist: 'Chilli D',
-                url: '/music/2020/2020ChilliDStalling.mp4',
+                url: 'music/2020/2020ChilliDStalling.mp4',
                 time: '2:24',
                 number: 5
             },
             {
                 name: 'Teath',
                 artist: 'Chilli D',
-                url: '/music/2020/2020ChilliDTeath.mp4',
+                url: 'music/2020/2020ChilliDTeath.mp4',
                 time: '3:13',
                 number: 2
             },
             {
                 name: 'Walk Off',
                 artist: 'Chilli D',
-                url: '/music/2020/2020ChilliDWalkOff.mp4',
+                url: 'music/2020/2020ChilliDWalkOff.mp4',
                 time: '3:17',
                 number: 4
             },
             {
                 name: 'World Tour',
                 artist: 'Chilli D',
-                url: '/music/2020/2020ChilliDWorldTour.mp4',
+                url: 'music/2020/2020ChilliDWorldTour.mp4',
                 time: '1:54',
                 number: 7
             },
             {
                 name: 'Zesty',
                 artist: 'Chilli D',
-                url: '/music/2020/2020ChilliDZesty.mp4',
+                url: 'music/2020/2020ChilliDZesty.mp4',
                 time: '2:03',
                 number: 8
             }
@@ -71,70 +71,70 @@ const albums = [
             {
                 name: 'Jungle',
                 artist: 'Chilli D',
-                url: '/music/2021/01Jungle.mp3',
+                url: 'music/2021/01Jungle.mp3',
                 time: '2:25',
                 number: 1
             },
             {
                 name: 'Sweetch',
                 artist: 'Chilli D',
-                url: '/music/2021/02Sweetch.mp3',
+                url: 'music/2021/02Sweetch.mp3',
                 time: '0:52',
                 number: 2
             },
             {
                 name: 'Can\'t Make Me',
                 artist: 'Chilli D',
-                url: '/music/2021/03CantMakeMe.mp3',
+                url: 'music/2021/03CantMakeMe.mp3',
                 time: '1:35',
                 number: 3
             },
             {
                 name: 'TricklDown',
                 artist: 'Chilli D',
-                url: '/music/2021/04TricklDown.mp3',
+                url: 'music/2021/04TricklDown.mp3',
                 time: '1:13',
                 number: 4
             },
             {
                 name: 'Boss Level',
                 artist: 'Chilli D',
-                url: '/music/2021/05BossLevel.mp3',
+                url: 'music/2021/05BossLevel.mp3',
                 time: '0:44',
                 number: 5
             },
             {
                 name: 'Spynnr',
                 artist: 'Chilli D',
-                url: '/music/2021/06Spynnr.mp3',
+                url: 'music/2021/06Spynnr.mp3',
                 time: '1:03',
                 number: 6
             },
             {
                 name: 'Dreamland',
                 artist: 'Chilli D',
-                url: '/music/2021/07Dreamland.mp3',
+                url: 'music/2021/07Dreamland.mp3',
                 time: '1:19',
                 number: 7
             },
             {
                 name: 'DriveN',
                 artist: 'Chilli D',
-                url: '/music/2021/08DriveN.mp3',
+                url: 'music/2021/08DriveN.mp3',
                 time: '1:38',
                 number: 8
             },
             {
                 name: 'Find Me',
                 artist: 'Chilli D',
-                url: '/music/2021/09FindMe.mp3',
+                url: 'music/2021/09FindMe.mp3',
                 time: '1:57',
                 number: 9
             },
             {
                 name: 'Leave Alone',
                 artist: 'Chilli D',
-                url: '/music/2021/10LeaveAlone.mp3',
+                url: 'music/2021/10LeaveAlone.mp3',
                 time: '1:15',
                 number: 10
             },
@@ -148,35 +148,35 @@ const albums = [
             {
                 name: 'The Downloading',
                 artist: 'Chilli D',
-                url: '/music/Hue/01TheDownloading.mp3',
+                url: 'music/Hue/01TheDownloading.mp3',
                 time: '1:55',
                 number: 1
             },
             {
                 name: 'It Lives',
                 artist: 'Chilli D',
-                url: '/music/Hue/02ItLives.mp3',
+                url: 'music/Hue/02ItLives.mp3',
                 time: '1:02',
                 number: 2
             },
             {
                 name: 'Belly of the Beast',
                 artist: 'Chilli D',
-                url: '/music/Hue/03BellyoftheBeast.mp3',
+                url: 'music/Hue/03BellyoftheBeast.mp3',
                 time: '2:24',
                 number: 3
             },
             {
                 name: 'What Am I?',
                 artist: 'Chilli D',
-                url: '/music/Hue/04WhatAmI_.mp3',
+                url: 'music/Hue/04WhatAmI_.mp3',
                 time: '1:30',
                 number: 4
             },
             {
                 name: 'End',
                 artist: 'Chilli D',
-                url: '/music/Hue/05End.mp3',
+                url: 'music/Hue/05End.mp3',
                 time: '3:32',
                 number: 5
             },
