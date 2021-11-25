@@ -139,6 +139,48 @@ const albums = [
                 number: 10
             },
         ]
+    },
+    {
+        title: 'The Hue Project',
+        artist: 'Chilli D',
+        image: 'graphics/NEWhueTemp-01.jpg',
+        tracks: [
+            {
+                name: 'The Downloading',
+                artist: 'Chilli D',
+                url: '/music/Hue/01TheDownloading.mp3',
+                time: '1:55',
+                number: 1
+            },
+            {
+                name: 'It Lives',
+                artist: 'Chilli D',
+                url: '/music/Hue/02ItLives.mp3',
+                time: '1:02',
+                number: 2
+            },
+            {
+                name: 'Belly of the Beast',
+                artist: 'Chilli D',
+                url: '/music/Hue/03BellyoftheBeast.mp3',
+                time: '2:24',
+                number: 3
+            },
+            {
+                name: 'What Am I?',
+                artist: 'Chilli D',
+                url: '/music/Hue/04WhatAmI_.mp3',
+                time: '1:30',
+                number: 4
+            },
+            {
+                name: 'End',
+                artist: 'Chilli D',
+                url: '/music/Hue/05End.mp3',
+                time: '3:32',
+                number: 5
+            },
+        ]
     }
 ];
 
@@ -147,12 +189,17 @@ let paused = true;
 let initialLoad;
 let duration;
 let currentTrackNum;
+let activeAlbum;
+let navAlbum;
+let activeTracklist = [];
 
 const wavesurfer = WaveSurfer.create({
     container: '#waveform',
     waveColor: 'limegreen',
     progressColor: 'green'
 });
+
+/* NAV FUNCS */
 
 function clearPane() {
     let parent = document.getElementById('tracks-pane');
@@ -179,14 +226,17 @@ function makeAlbumList(albumsArr) {
                 <span class="album-card-artist">${album.artist}</span>
             </div>
         `;
-        child.onclick = function() { makeTrackList(album.tracks) };
+        child.onclick = function() { 
+            navAlbum = album;
+            makeTrackList(album.tracks); 
+        };
         wrapper.appendChild(child);
     });
 }
 
 function makeTrackList(tracksArr) {
     let path = document.getElementById('nav-title');
-    path.innerText = 'Tracks';
+    path.innerText = `${navAlbum.title} - Tracks`;
 
     clearPane();
 
@@ -198,7 +248,7 @@ function makeTrackList(tracksArr) {
 
     let orderedArr = tracksArr.sort((a, b) => (a.number > b.number) ? 1 : -1);
 
-    orderedArr.forEach((item, index) => {
+    orderedArr.forEach((item) => {
         let list = document.getElementById('track-list');
         let track = document.createElement('li');
         track.classList.add('track');
@@ -206,7 +256,11 @@ function makeTrackList(tracksArr) {
             <span class="track-name">${item.name}</span>&nbsp; - &nbsp;<span class="track-length">${item.time} </span>
             <br /><span class="track-artist">${item.artist}</span>
             `;
-        track.onclick = function() { selectTrack(item) };
+        track.onclick = function() {
+            activeAlbum = navAlbum; 
+            selectTrack(item);
+            activeTracklist = orderedArr;
+        };
         list.appendChild(track);
     });
 
@@ -215,18 +269,27 @@ function makeTrackList(tracksArr) {
 
 function selectTrack(track) {
     let nowPlaying = document.getElementById('now-playing');
+    let visWindow = document.getElementById('visualizer');
+
+    visWindow.style.backgroundImage = `url(${activeAlbum.image})`;
+
     duration = track.time;
     currentTrackNum = (track.number - 1);
 
     handleStop();
     wavesurfer.empty();
 
-    nowPlaying.innerHTML = `Now Playing:&nbsp; ${track.name} by ${track.artist}
+    nowPlaying.innerHTML = `Now Playing:&nbsp; 
+    <span class="track-playing">${track.name}</span>
+    <span class="artist-playing">by ${track.artist}</span>
+    <span class="album-playing">${activeAlbum.title}</span>
     `;
 
     wavesurfer.load(track.url);
     initialLoad = false;
 }
+
+/* HANDLER FUNCS */
 
 function handleBackNav() {
     clearPane();
@@ -258,11 +321,11 @@ function handleStop() {
 }
 
 function handleSkipForward() {
-    selectTrack(tracks[currentTrackNum + 1]);
+    selectTrack(activeTracklist[currentTrackNum + 1]);
 }
 
 function handleSkipBack() {
-    selectTrack(tracks[currentTrackNum - 1]);
+    selectTrack(activeTracklist[currentTrackNum - 1]);
 }
 
 function handleVolume() {
@@ -270,13 +333,7 @@ function handleVolume() {
     wavesurfer.setVolume(slider.value);
 }
 
-function init() {
-    //currentTrackNum = 0;
-    makeAlbumList(albums);
-    wavesurfer.stop();
-    initialLoad = true;
-    wavesurfer.setVolume(.75);
-}
+/* WAVESURFER LISTENERS */
 
 wavesurfer.on('ready', function() {
     let playButton = document.getElementById('play-btn');
@@ -317,5 +374,39 @@ wavesurfer.on("audioprocess", function() {
         timeline.innerHTML = `${m}:${s} / ${duration}`;
     }
 });
+
+/* VISUALIZER */
+
+
+/* KEY LISTENERS */
+
+window.addEventListener('keydown', (e) => {
+    switch (e.key) {
+        case ' ':
+            e.preventDefault();
+            handlePlayPause();
+            break;
+        case 'ArrowLeft':
+            e.preventDefault();
+            handleSkipBack();
+            break;
+        case 'ArrowRight':
+            e.preventDefault();
+            handleSkipForward();
+            break;
+        default:
+            break;
+    }
+});
+
+/* INIT */
+
+function init() {
+    //currentTrackNum = 0;
+    makeAlbumList(albums);
+    wavesurfer.stop();
+    initialLoad = true;
+    wavesurfer.setVolume(.75);
+}
 
 init();
