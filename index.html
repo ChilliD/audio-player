@@ -25,21 +25,21 @@
         <div id="bottom-wrapper" class="bottom-wrapper">
             <div id="waveform" class="waveform"></div>
             <div id="playing-text" class="playing-text">
-                <span id="now-playing" class="now-playing">Now Playing - </span>
+                <div id="now-playing" class="now-playing">Now Playing - </div>
                 <span id="duration" class="duration">0:00 / 0:00</span>
             </div>
             <section id="controls" class="controls">
                 <div class="button-wrap">
-                    <button id="prev-btn" class="prev-btn" onclick="handleSkipBack()">
+                    <button id="prev-btn" class="prev-btn" onclick="handleSkipBack()" title="Previous Track">
                         <i class="fas fa-step-backward"></i>
                     </button>
-                    <button id="play-btn" class="play-btn" onclick="handlePlayPause()">
+                    <button id="play-btn" class="play-btn" onclick="handlePlayPause()" title="Play/Pause">
                         <i class="fas fa-play"></i>
                     </button>
-                    <button id="stop-btn" class="stop-btn" onclick="handleStop()">
+                    <button id="stop-btn" class="stop-btn" onclick="handleStop()" title="Stop">
                         <i class="fas fa-stop"></i>
                     </button>
-                    <button id="next-btn" class="next-btn" onclick="handleSkipForward()">
+                    <button id="next-btn" class="next-btn" onclick="handleSkipForward()" title="Next Track">
                         <i class="fas fa-step-forward"></i>
                     </button>
                 </div>
