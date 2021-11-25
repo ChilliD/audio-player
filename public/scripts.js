@@ -1,68 +1,5 @@
 
 const albums = [
-    {   
-        title: '2020',
-        artist: 'Chilli D',
-        image: 'graphics/ChilliD_2020_albumart.jpg', 
-        tracks: [    
-            {
-                name: 'Feel Alright',
-                artist: 'Chilli D',
-                url: 'music/2020/2020ChilliDFeelAlright.mp4',
-                time: '2:10',
-                number: 1
-            },
-            {
-                name: `Runnin' Out`,
-                artist: 'Chilli D',
-                url: 'music/2020/2020ChilliDRunninOut.mp4',
-                time: '1:00',
-                number: 6
-            },
-            {
-                name: 'Slack',
-                artist: 'Chilli D',
-                url: 'music/2020/2020ChilliDSlack.mp4',
-                time: '2:42',
-                number: 3
-            },
-            {
-                name: 'Stalling',
-                artist: 'Chilli D',
-                url: 'music/2020/2020ChilliDStalling.mp4',
-                time: '2:24',
-                number: 5
-            },
-            {
-                name: 'Teath',
-                artist: 'Chilli D',
-                url: 'music/2020/2020ChilliDTeath.mp4',
-                time: '3:13',
-                number: 2
-            },
-            {
-                name: 'Walk Off',
-                artist: 'Chilli D',
-                url: 'music/2020/2020ChilliDWalkOff.mp4',
-                time: '3:17',
-                number: 4
-            },
-            {
-                name: 'World Tour',
-                artist: 'Chilli D',
-                url: 'music/2020/2020ChilliDWorldTour.mp4',
-                time: '1:54',
-                number: 7
-            },
-            {
-                name: 'Zesty',
-                artist: 'Chilli D',
-                url: 'music/2020/2020ChilliDZesty.mp4',
-                time: '2:03',
-                number: 8
-            }
-        ]
-    },
     {
         title: '2021',
         artist: 'Chilli D',
@@ -140,6 +77,69 @@ const albums = [
             },
         ]
     },
+    {   
+        title: '2020',
+        artist: 'Chilli D',
+        image: 'graphics/ChilliD_2020_albumart.jpg', 
+        tracks: [    
+            {
+                name: 'Feel Alright',
+                artist: 'Chilli D',
+                url: 'music/2020/2020ChilliDFeelAlright.mp4',
+                time: '2:10',
+                number: 1
+            },
+            {
+                name: `Runnin' Out`,
+                artist: 'Chilli D',
+                url: 'music/2020/2020ChilliDRunninOut.mp4',
+                time: '1:00',
+                number: 6
+            },
+            {
+                name: 'Slack',
+                artist: 'Chilli D',
+                url: 'music/2020/2020ChilliDSlack.mp4',
+                time: '2:42',
+                number: 3
+            },
+            {
+                name: 'Stalling',
+                artist: 'Chilli D',
+                url: 'music/2020/2020ChilliDStalling.mp4',
+                time: '2:24',
+                number: 5
+            },
+            {
+                name: 'Teath',
+                artist: 'Chilli D',
+                url: 'music/2020/2020ChilliDTeath.mp4',
+                time: '3:13',
+                number: 2
+            },
+            {
+                name: 'Walk Off',
+                artist: 'Chilli D',
+                url: 'music/2020/2020ChilliDWalkOff.mp4',
+                time: '3:17',
+                number: 4
+            },
+            {
+                name: 'World Tour',
+                artist: 'Chilli D',
+                url: 'music/2020/2020ChilliDWorldTour.mp4',
+                time: '1:54',
+                number: 7
+            },
+            {
+                name: 'Zesty',
+                artist: 'Chilli D',
+                url: 'music/2020/2020ChilliDZesty.mp4',
+                time: '2:03',
+                number: 8
+            }
+        ]
+    },
     {
         title: 'The Hue Project',
         artist: 'Chilli D',
@@ -196,7 +196,8 @@ let activeTracklist = [];
 const wavesurfer = WaveSurfer.create({
     container: '#waveform',
     waveColor: 'limegreen',
-    progressColor: 'green'
+    progressColor: 'green',
+    height: 100
 });
 
 /* NAV FUNCS */

@@ -3,6 +3,8 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-size: 16px;
     background-color: #090909;
     font-family: arial;
@@ -27,8 +29,8 @@ body {
     height: 100%;
     width: 25%;
     background-color: #000000;
-    border-top: 2px solid gray;
-    border-right: 2px solid gray;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
     overflow: scroll;
     cursor: default;
 }
@@ -37,7 +39,7 @@ body {
     height: 100%;
     width: 75%;
     background-color: #090909;
-    border: 2px solid gray;
+    border: 1px solid gray;
     border-bottom: none;
     background-repeat: no-repeat;
     background-size: contain;
@@ -45,13 +47,14 @@ body {
 }
 
 .album-nav {
-    height: 3rem;
+    height: 2rem;
     background-color: #090909;
     color: #e6e6e6;
-    font-size: 1em;
+    font-size: .9em;
     display: flex;
     align-items: center;
     padding: .5em;
+    padding-top: 1em;
 }
 
 .album-nav i {
@@ -78,8 +81,8 @@ body {
 }
 
 .album-card {
-    border-bottom: 2px solid #4a4a4a;
-    padding: 1rem;
+    border-bottom: 1px solid #4a4a4a;
+    padding: .75rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -90,25 +93,25 @@ body {
 }
 
 .album-thumb {
-    height: 4em;
-    width: 4em;
+    height: 3em;
+    width: 3em;
     border: 1px solid gray;
     object-fit: cover;
 }
 
 .album-card-text {
-    width: 30%;
+    width: 50%;
     display: flex;
     flex-direction: column;
 }
 
 .album-card-title {
-    font-size: 1.3em;
+    font-size: 1em;
     color: #e6e6e6;
 }
 
 .album-card-artist {
-    font-size: 1em;
+    font-size: .75em;
     color: #737373;
 }
 
@@ -116,6 +119,7 @@ body {
     height: auto;
     background-color: #090909;
     text-align: left;
+    padding-left: 2.25rem;
 }
 
 .track-list > li:nth-child(odd) { 
@@ -133,7 +137,7 @@ body {
 .track {
     padding: .75em;
     color: limegreen;
-    font-size: 1.4em;
+    font-size: 1em;
     line-height: 1.25em;
 }
 
@@ -167,10 +171,10 @@ body {
 }
 
 .waveform {
-    height: 40%;
+    height: 45%;
     width: 100%;
     background-color: #090909;
-    border-top: 2px solid gray;
+    border-top: 1px solid gray;
 }
 
 .playing-text {
@@ -179,7 +183,8 @@ body {
     background: linear-gradient(#090909, #000000);
     color: #e6e6e6;
     padding: .4rem 1rem;
-    font-size: 1.4em;
+    font-size: 1.1em;
+    line-height: .8em;
     border-bottom: 1px solid #191919;
     border-bottom-right-radius: 1.5rem;
     display: flex;
@@ -213,11 +218,11 @@ body {
 }
 
 .controls button {
-    font-size: 1.5em;
+    font-size: 1.2em;
     border-radius: .25em;
-    padding: .5rem 1rem;
+    padding: .4rem .75rem;
     background-color: #696969;
-    margin: 0 .1rem;
+    border-width: 1px;
 }
 
 .controls button:hover {
@@ -229,14 +234,14 @@ body {
 }
 
 .volume-slider {
-    padding: 0 2em;
+    padding: 0 1.5em;
 }
 
 .volume {
     appearance: none;
-    height: 1em;
+    height: .75em;
     background: #191919;
-    border-radius: 2em;
+    border-radius: 1.5em;
 }
 
 .volume::-webkit-slider-thumb {
@@ -254,6 +259,8 @@ body {
     body {
         margin: 0;
         padding: 0;
+        min-height: 100vh;
+        min-height: -webkit-fill-available
     }
 
     .top-wrapper {
@@ -272,7 +279,7 @@ body {
         width: 100%;
         height: 60%;
         border: none;
-        font-size: .75em;
+        font-size: 1em;
     }
 
     .album-nav {
@@ -281,7 +288,7 @@ body {
     }
 
     .tracks-pane {
-        margin-top: 4em;
+        margin-top: 2em;
     }
 
     .bottom-wrapper {
