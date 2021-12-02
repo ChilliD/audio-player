@@ -290,6 +290,10 @@ function selectTrack(track) {
     initialLoad = false;
 }
 
+function closeWarning() {
+    document.getElementById('mobile-warning').style.visibility = 'hidden';
+}
+
 /* HANDLER FUNCS */
 
 function handleBackNav() {

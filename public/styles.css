@@ -257,6 +257,10 @@ body {
     background-color: #4a4a4a;
 }
 
+.mobile-warning {
+    visibility: hidden;
+}
+
 
 @media only screen and (max-width: 480px) {
 
@@ -348,4 +352,20 @@ body {
     .controls button {
         font-size:  1em;
     }
+
+    .mobile-warning {
+        visibility: visible;
+        background-color: rgba(128, 0, 0, .75);
+        color: #e6e6e6;
+        padding: 1.5rem;
+        position: absolute;
+    }
+
+    .mobile-warning .close-icon {
+        position: absolute;
+        top: .75rem;
+        right: .75rem;
+        font-size: 1.5em;
+    }
+    
 }
