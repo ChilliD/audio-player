@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/ChilliD/audio-player/issues"
   },
-  "homepage": "https://github.com/ChilliD/audio-player#readme"
+  "homepage": "https://github.com/ChilliD/audio-player#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
