@@ -409,7 +409,7 @@ window.addEventListener('keydown', (e) => {
 function init() {
     //currentTrackNum = 0;
     makeAlbumList(albums);
-    wavesurfer.stop();
+    //wavesurfer.stop();
     initialLoad = true;
     wavesurfer.setVolume(.75);
 }
