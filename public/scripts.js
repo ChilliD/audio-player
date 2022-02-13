@@ -291,7 +291,7 @@ function selectTrack(track) {
 }
 
 function closeWarning() {
-    document.getElementById('mobile-warning').style.visibility = 'hidden';
+    document.getElementById('mobile-warning').style.display = 'none';
 }
 
 /* HANDLER FUNCS */

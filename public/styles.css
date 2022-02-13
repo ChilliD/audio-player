@@ -258,7 +258,7 @@ body {
 }
 
 .mobile-warning {
-    visibility: hidden;
+    display: none;
 }
 
 
@@ -354,7 +354,7 @@ body {
     }
 
     .mobile-warning {
-        visibility: visible;
+        display: initial;
         background-color: rgba(128, 0, 0, .75);
         color: #e6e6e6;
         padding: 1.5rem;
